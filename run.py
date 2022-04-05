@@ -6,6 +6,7 @@ from content import get_posts
 from article_w import fetch_art
 from tkinter import filedialog as fdialog
 import tkinter as tk
+import socket 
 cprint(pyf.figlet_format("PEP",font="isometric1"),"blue")
 print(colored("[ lower case Mode]","yellow"))
 def inputs():
@@ -33,6 +34,8 @@ def menu():
     printy("=====================================================================","rBU")
     if opt==1:
         url,word=inputs()
+        ips=socket.gethostbyname(url)
+        print(colored(str(ips),"brown"))
         try:
             save_posts(fetch_posts(url,word))
             menu()

@@ -1,10 +1,12 @@
 from printy import printy
-#import pyfiglet as pyf
-from termcolor import colored
+import pyfiglet as pyf
+from termcolor import colored,cprint
 from article import save_posts,fetch_posts
 from content import get_posts
 from article_w import fetch_art
-#cprint(pyf.figlet_format("PEP",font="isometric1"),"blue")
+from tkinter import filedialog as fdialog
+import tkinter as tk
+cprint(pyf.figlet_format("PEP",font="isometric1"),"blue")
 print(colored("[ lower case Mode]","yellow"))
 def inputs():
     url=input(">>BASE URL ~ ")

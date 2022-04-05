@@ -15,7 +15,7 @@ def fetch_art(url,key_wrd):
         if art.find("a")==None:
             pass
         else:
-            print(art.find("a"))
+            
             if list(map(lambda x:x.lower(),art.find("a").text.strip().split(" "))).count(key_wrd)>0:
                 
                 posts=init_scrap(url+art.find("a").get("href"))
@@ -23,4 +23,8 @@ def fetch_art(url,key_wrd):
                 for post in posts.find_all("p"):
                     posts_.append(post.text.strip())
                 all_posts.append(posts_)
+    if len(all_posts)==0:
+        print(colored("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%","red"))
+        print(colored("           No articles matching your key word ","red"))
+        print(colored("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%","red"))
     return all_posts

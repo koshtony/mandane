@@ -29,7 +29,7 @@ def save_posts(obj):
         print("%%%%%%%% "+str(len(obj))+" posts found %%%")
         print(" =====     save posts===================")
        
-        fnam=input("filename>>")
+        fnam="scrapped_posts"
         create_file(fnam,obj)
 def create_file(name,obj):
     for i in range(len(obj)):

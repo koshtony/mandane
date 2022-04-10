@@ -10,18 +10,20 @@ def fetch_posts(url,key_wrd):
     article=init_scrap(url)
     heads=["h1","h2","h3","h4"]
     all_posts=[]
+    titles=[]
     for art in article.find_all("a"):
         if art.find(heads)==None:
             pass
         else:
             if list(map(lambda x:x.lower(),art.find(heads).text.strip().split(" "))).count(key_wrd)>0:
                 #mini_art=init_scrap(art.text)
+                titles.append(art.find(heads).text.strip())
                 posts=init_scrap(url+art.get("href"))
                 posts_=[]
                 for post in posts.find_all("p"):
                     posts_.append(post.text.strip())
                 all_posts.append(posts_)
-    return all_posts
+    return all_posts,titles
 
 def save_posts(obj):
     if len(obj)>0:

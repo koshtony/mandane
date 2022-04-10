@@ -35,8 +35,11 @@ if rad=="Normal":
             for i in range(100):
                 time.sleep(0.01)
                 progress.progress(i+1)
-            all=join_posts(fetch_posts(url,key_word))
+            all,titles=fetch_posts(url,key_word)
+            all=join_posts(all)
             col2.write(all)
+            col1.header("TITLES")
+            col1.write(titles)
         except:
             errors()
 elif rad=="Distorted":
